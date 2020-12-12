@@ -5,9 +5,9 @@ from aiogram import Bot, Dispatcher, executor
 from settings import config
 
 
-# declaring the bot
+# declaring the bot and its settings
 loop = asyncio.get_event_loop()
-bot = Bot(token=config.API_TOKEN)
+bot = Bot(token=config.API_TOKEN, parse_mode='Markdown')
 dp = Dispatcher(bot)
 
 if __name__ == '__main__':

@@ -20,6 +20,3 @@ API_TOKEN = env.str("API_TOKEN")
 
 if not API_TOKEN:
     logging.error("Telegram BOT API Token is not found!")
-
-# importing all other static variables from .env
-PROJECT_FOLDER_NAME = env.str("PROJECT_FOLDER_NAME")

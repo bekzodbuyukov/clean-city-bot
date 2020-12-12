@@ -4,13 +4,13 @@ db = TinyDB('db.json')
 db_query = Query()
 
 
-class User:
+class UserModel:
     """ The model for creating and manipulating with Users' data """
 
     def __init__(self):
         """ The default initialization function """
         self.id = 0
-        self.language = 'uz'
+        self.language = 'kz'
         self.phone_number = 0
 
     def set_id(self, user_id):

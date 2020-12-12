@@ -1,10 +1,5 @@
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton
-# from handlers.static_commands import register_user_language
-
-
-def register_user_language(user_language):
-    # User.set_language(user_language)
-    print(user_language)
+from handlers import callback  # this import must be here
 
 
 MAIN_MENU = ReplyKeyboardMarkup(
@@ -36,4 +31,14 @@ CHOOSE_LANGUAGE_MENU = InlineKeyboardMarkup(
             InlineKeyboardButton(text="English", callback_data="en_lang")
         ]
     ]
+)
+
+SHARE_CONTACT_MENU = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+            KeyboardButton(text="Telefon raqamni jo'natish", request_contact=True)
+        ],
+    ],
+    resize_keyboard=True,
+    one_time_keyboard=True
 )

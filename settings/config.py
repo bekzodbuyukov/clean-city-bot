@@ -1,6 +1,7 @@
 import logging
 
 from environs import Env
+from pathlib import Path
 
 
 # reading .env file

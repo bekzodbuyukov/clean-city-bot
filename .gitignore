@@ -131,3 +131,4 @@ dmypy.json
 # project special files
 db.json
 .idea
+data.db

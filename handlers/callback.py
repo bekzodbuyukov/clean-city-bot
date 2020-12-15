@@ -1,23 +1,25 @@
 from bot import dp
 from aiogram.types import CallbackQuery
 from handlers import static_commands
-from db.db_controller import UserModel
+from db import db_controller
 
 
 @dp.callback_query_handler()
 async def callback_handler(call: CallbackQuery):
-    user = UserModel()
-    user.set_id(call.message.chat.id)
-    if call.data.startswith("oz_lang"):
-        user.set_language("oz")
-        # await call.message.answer()
-        await static_commands.set_user_phone_number(call.message, user)
+    # await call.message.answer()
+
+    global language
+    if call.data.startswith("oz_"):
+        language = "oz"
     elif call.data.startswith("uz_"):
-        user.set_language("uz")
-        await call.message.answer(text="Тил созламмалари сакланди.")
+        language = "uz"
+        text = "Тил созламмалари сакланди."
     elif call.data.startswith("ru_"):
-        user.set_language("ru")
-        await call.message.answer(text="Настройки языка сохранены")
+        language = "ru"
+        text = "Настройки языка сохранены"
     elif call.data.startswith("en_"):
-        user.set_language("en")
-        await call.message.answer(text="Language settings are saved.")
+        language = "en"
+        text = "Language settings are saved."
+
+    db_controller.add_data(user_id=call.message.chat.id, phone_number=0, language=language)
+    await static_commands.set_user_phone_number(call.message)

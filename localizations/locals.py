@@ -11,8 +11,9 @@ def get_string(key, user_id):
     #
     # current_user = db.get(db_query.id == user_id)
     # print(f"til - {current_user}")
+    
+    print(f"{db_controller.get_data(user_id=user_id, needed_column='language')}")
 
-    print(f"{db_controller.get_user_language(user_id)}")
 
-
-get_string("test", 1009755188)
+if __name__ == "__main__":
+    get_string("test", 1009755188)

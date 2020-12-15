@@ -3,6 +3,10 @@ import asyncio
 
 from aiogram import Bot, Dispatcher, executor
 from settings import config
+from db import db_controller
+
+
+db_controller.init_db()
 
 
 # declaring the bot and its settings
@@ -13,4 +17,5 @@ dp = Dispatcher(bot)
 if __name__ == '__main__':
     # needed for answering to the user messages to bot
     from handlers.static_commands import dp
+
     executor.start_polling(dp, skip_updates=True)

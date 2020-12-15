@@ -2,13 +2,14 @@ from bot import dp
 from aiogram import types
 from aiogram.types import Message
 from keyboards import keyboards
-from db.db_controller import db, UserModel, db_query
+from db import db_controller
 
 
 @dp.message_handler(commands="start")
 async def send_welcome(message: Message):
     """ Function for welcoming new and registered users """
-    if db.search(db_query.id == message.chat.id):
+    # if db.search(db_query.id == message.chat.id):
+    if db_controller.find_user(user_id=message.chat.id) != 0:
         welcome_oz_text = f"Assalomu alaykum, [foydalanuvchi](tg://user?id={message.chat.id})!"
         await message.answer(text=welcome_oz_text,
                              reply_markup=keyboards.MAIN_MENU)
@@ -20,16 +21,16 @@ async def send_welcome(message: Message):
                              reply_markup=keyboards.CHOOSE_LANGUAGE_MENU)
 
 
-async def set_user_phone_number(message: Message, user: UserModel):
+async def set_user_phone_number(message: Message):
     """ Function for continuation of registration, after User chooses interface language"""
     share_contact_oz_text = "Til sozlammalari saqlandi.\n\nIltimos telefon raqamingizni bo'lishing."
 
     # print(f"{user.id} - {user.language} - {user.phone_number}")
 
-    try:
-        db.insert({'id': user.id, 'language': user.language, 'phone_number': 0, 'status': 'True'})
-    except:
-        pass
+    # try:
+    #     db.insert({'id': user.id, 'language': user.language, 'phone_number': 0, 'status': 'True'})
+    # except:
+    #     pass
 
     await message.answer(text=share_contact_oz_text,
                          reply_markup=keyboards.SHARE_CONTACT_MENU)
@@ -44,7 +45,9 @@ async def get_contact(message: Message):
 
     # working with database
     try:
-        db.update({'phone_number': message.contact.phone_number}, db_query.id == message.chat.id)
+        db_controller.update_data(user_id=message.chat.id, updating_column="phone_number",
+                                  updating_value=message.contact.phone_number)
+        # db.update({'phone_number': message.contact.phone_number}, db_query.id == message.chat.id)
     except:
         sorry_text_oz = "Uzr, xatolik yuz berdi. Iltimos, /start buyrug'ini jo'natgan holda boshqatdan urunib ko'ring."
         await message.answer(text=sorry_text_oz)

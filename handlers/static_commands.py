@@ -3,16 +3,15 @@ from aiogram import types
 from aiogram.types import Message
 from keyboards import keyboards
 from db import db_controller
+from localizations.locals import get_string
 
 
 @dp.message_handler(commands="start")
 async def send_welcome(message: Message):
     """ Function for welcoming new and registered users """
-    # if db.search(db_query.id == message.chat.id):
     if db_controller.find_user(user_id=message.chat.id) != 0:
-        welcome_oz_text = f"Assalomu alaykum, [foydalanuvchi](tg://user?id={message.chat.id})!"
-        await message.answer(text=welcome_oz_text,
-                             reply_markup=keyboards.MAIN_MENU)
+        await message.answer(text=get_string("welcome", message.chat.id).format(message.chat.first_name),
+                             reply_markup=keyboards.get_main_menu(message.chat.id))
     else:
         choose_language_action_text = f"Iltimos, tilni tanlang.\n\n" \
                                       f"Пожалуйста, выберите язык.\n\n" \
@@ -23,33 +22,34 @@ async def send_welcome(message: Message):
 
 async def set_user_phone_number(message: Message):
     """ Function for continuation of registration, after User chooses interface language"""
-    share_contact_oz_text = "Til sozlammalari saqlandi.\n\nIltimos telefon raqamingizni bo'lishing."
+    text = get_string("lang_settings_saved", message.chat.id) \
+           + "\n\n" + get_string("ask_phone_number", message.chat.id)
 
-    # print(f"{user.id} - {user.language} - {user.phone_number}")
+    # deleting previous sent message to keep chat with user clean
+    await message.bot.delete_message(message.chat.id, message.message_id)
 
-    # try:
-    #     db.insert({'id': user.id, 'language': user.language, 'phone_number': 0, 'status': 'True'})
-    # except:
-    #     pass
-
-    await message.answer(text=share_contact_oz_text,
-                         reply_markup=keyboards.SHARE_CONTACT_MENU)
+    await message.answer(text=text,
+                         reply_markup=keyboards.get_share_number_menu(message.chat.id))
 
 
 @dp.message_handler(content_types=types.ContentType.CONTACT)
 async def get_contact(message: Message):
-    successfully_registered_text = "Telefon raqamingiz muvaffaqiyatli ravishda saqlandi.\n\n" \
-                                   "Til sozlammalarini istalgan vaqt:\n *Sozlamallar* -> *Tilni o'zgartirish* " \
-                                   "\nbo'limidan o'zgartirishingiz mumkin."
-    # print(f"{message.contact.phone_number}")
+    """ Function for getting user's phone number to finish registration """
+    # deleting previous sent message to keep chat with user clean
+    await message.bot.delete_message(message.chat.id, message.message_id - 1)
+
+    text = get_string("number_successfully_saved", message.chat.id)\
+           + "\n\n" + get_string("can_change_language", message.chat.id)
+
+    # deleting previous sent message to keep chat with user clean
+    await message.bot.delete_message(message.chat.id, message.message_id)
 
     # working with database
     try:
         db_controller.update_data(user_id=message.chat.id, updating_column="phone_number",
                                   updating_value=message.contact.phone_number)
-        # db.update({'phone_number': message.contact.phone_number}, db_query.id == message.chat.id)
     except:
-        sorry_text_oz = "Uzr, xatolik yuz berdi. Iltimos, /start buyrug'ini jo'natgan holda boshqatdan urunib ko'ring."
-        await message.answer(text=sorry_text_oz)
+        error_text = get_string("phone_number_error", message.chat.id)
+        await message.answer(text=error_text)
 
-    await message.answer(text=successfully_registered_text, reply_markup=keyboards.MAIN_MENU)
+    await message.answer(text=text, reply_markup=keyboards.get_main_menu(message.chat.id))

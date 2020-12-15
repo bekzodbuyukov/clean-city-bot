@@ -6,7 +6,8 @@ from settings import config
 from db import db_controller
 
 
-db_controller.init_db()
+# initializing database, if force=True, database will be recreated
+db_controller.init_db(force=True)
 
 
 # declaring the bot and its settings

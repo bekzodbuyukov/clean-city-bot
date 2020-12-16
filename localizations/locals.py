@@ -13,7 +13,7 @@ def get_string(key, user_id):
 def get_string_by_language(key, language):
     """ Function for returning needed text for User interface just by language code """
     if not language:
-        language = "uz"
+        language = "oz"
     return strings[language][key]
 
 

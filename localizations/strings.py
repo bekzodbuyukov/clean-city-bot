@@ -13,6 +13,13 @@ strings = {
                                "bo'limidan o'zgartirishingiz mumkin.",
         "phone_number_error": "Uzr, xatolik yuz berdi.\n\n"
                               "Iltimos, /start buyrug'ini jo'natgan holda yana bir bor urinib ko'ring.",
+        "settings": "*Sozlammalar*\n\nKerakli bo'limni tanlang.",
+        "change_language_button": "Tilni o'zgartirish",
+        "home_button": "Bosh bo'lim",
+        "home": "Bosh sahifaga qaytdingiz.",
+        "about": "*Bot haqida*\n\nUshbu bot yordamida shahardagi maxsus ajratilgan joylarga"
+                 " tashlanmagan axlatlar muammosi hal etilishi maqsad qilib olingan.\n\n"
+                 "*Bu loyihada har bir fuqaro ishtirok etishi mumkin.*"
     },
     "uz": {
         "welcome": "Ассалому алайкум, {}!",
@@ -27,6 +34,13 @@ strings = {
                                "бўлимидан ўзгартиришингиз мумкин.",
         "phone_number_error": "Узр, хатолик юз берди.\n\n"
                               "Илтимос, /start буйруғини жўнатган ҳолда яна бир бор уриниб кўринг.",
+        "settings": "*Созламмалар*\n\nКеракли бўлимни танланг.",
+        "change_language_button": "Тилни ўзгартириш",
+        "home_button": "Бош бўлим",
+        "home": "Бош саҳифага қайтдингиз.",
+        "about": "*Бот ҳақида*\n\nУшбу бот ёрдамида шаҳардаги махсус ажратилган жойларга"
+                 " ташланмаган ахлатлар муаммоси ҳал этилиши мақсад қилиб олинган.\n\n"
+                 "*Бу лойиҳада ҳар бир фуқаро иштирок этиши мумкин.*"
     },
     "ru": {
         "welcome": "Здравствуйте, {}!",
@@ -41,6 +55,13 @@ strings = {
                                "*Настройки* -> *Сменить язык*",
         "phone_number_error": "Извините, произошла ошибка.\n\n"
                               "Пожалуйста, отправив команду /start попробуйте снова.",
+        "settings": "*Настройки*\n\nВыберите необходимый раздел.",
+        "change_language_button": "Сменить язык",
+        "home_button": "Главное меню",
+        "home": "Вы вернулись в главное меню.",
+        "about": "*О боте*\n\nС помощью данного бота запланировано решение проблемы с"
+                 " мусором выкинутым в не специльно отведенное для этого место.\n\n"
+                 "*Каждый горожанин может принять участие в проекте.*"
     },
     "en": {
         "welcome": "Hello, {}!",
@@ -55,5 +76,17 @@ strings = {
                                "*Settings* -> *Change language*",
         "phone_number_error": "Sorry, an error has occurred.\n\n"
                               "Please, try again by sending the /start command.",
+        "settings": "*Settings*\n\nPlease, select what you do.",
+        "change_language_button": "Change language",
+        "home_button": "Main menu",
+        "home": "You returned to main menu.",
+        "about": "*About bot*\n\nIt is planned to solve the problem of garbage which"
+                 " is thrown not to special place.\n\n"
+                 "*Every citizen can take part in this project.*"
     }
 }
+
+choose_language_action_text = "Iltimos, tilni tanlang.\n\n" \
+                              "Илтимос, тилни танланг.\n\n"\
+                              "Пожалуйста, выберите язык.\n\n"\
+                              "Please, choose the language."

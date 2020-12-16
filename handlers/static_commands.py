@@ -4,6 +4,7 @@ from aiogram.types import Message
 from keyboards import keyboards
 from db import db_controller
 from localizations.locals import get_string
+from localizations import strings
 
 
 @dp.message_handler(commands="start")
@@ -13,10 +14,7 @@ async def send_welcome(message: Message):
         await message.answer(text=get_string("welcome", message.chat.id).format(message.chat.first_name),
                              reply_markup=keyboards.get_main_menu(message.chat.id))
     else:
-        choose_language_action_text = f"Iltimos, tilni tanlang.\n\n" \
-                                      f"Пожалуйста, выберите язык.\n\n" \
-                                      f"Please, choose the language."
-        await message.answer(text=choose_language_action_text,
+        await message.answer(text=strings.choose_language_action_text,
                              reply_markup=keyboards.CHOOSE_LANGUAGE_MENU)
 
 

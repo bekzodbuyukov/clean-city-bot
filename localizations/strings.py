@@ -19,7 +19,9 @@ strings = {
         "home": "Bosh sahifaga qaytdingiz.",
         "about": "*Bot haqida*\n\nUshbu bot yordamida shahardagi maxsus ajratilgan joylarga"
                  " tashlanmagan axlatlar muammosi hal etilishi maqsad qilib olingan.\n\n"
-                 "*Bu loyihada har bir fuqaro ishtirok etishi mumkin.*"
+                 "*Bu loyihada har bir fuqaro ishtirok etishi mumkin.*",
+        "problem": "Muammo topilgan joy rasmlarini yuboring, iltimos.",
+        "number_not_needed": "Telefon raqamingiz saqlangan!"
     },
     "uz": {
         "welcome": "Ассалому алайкум, {}!",
@@ -40,7 +42,9 @@ strings = {
         "home": "Бош саҳифага қайтдингиз.",
         "about": "*Бот ҳақида*\n\nУшбу бот ёрдамида шаҳардаги махсус ажратилган жойларга"
                  " ташланмаган ахлатлар муаммоси ҳал этилиши мақсад қилиб олинган.\n\n"
-                 "*Бу лойиҳада ҳар бир фуқаро иштирок этиши мумкин.*"
+                 "*Бу лойиҳада ҳар бир фуқаро иштирок этиши мумкин.*",
+        "problem": "Муаммо топилган жой расмларини юборинг, илтимос.",
+        "number_not_needed": "Телефон рақамингиз сақланган!"
     },
     "ru": {
         "welcome": "Здравствуйте, {}!",
@@ -61,7 +65,9 @@ strings = {
         "home": "Вы вернулись в главное меню.",
         "about": "*О боте*\n\nС помощью данного бота запланировано решение проблемы с"
                  " мусором выкинутым в не специльно отведенное для этого место.\n\n"
-                 "*Каждый горожанин может принять участие в проекте.*"
+                 "*Каждый горожанин может принять участие в проекте.*",
+        "problem": "Пожалуйста, отправьте изображения с места проблемы.",
+        "number_not_needed": "Ваш номер уже сохранен!"
     },
     "en": {
         "welcome": "Hello, {}!",
@@ -82,7 +88,9 @@ strings = {
         "home": "You returned to main menu.",
         "about": "*About bot*\n\nIt is planned to solve the problem of garbage which"
                  " is thrown not to special place.\n\n"
-                 "*Every citizen can take part in this project.*"
+                 "*Every citizen can take part in this project.*",
+        "problem": "Please, send photos of place where problem is detected.",
+        "number_not_needed": "Your number has already been saved!"
     }
 }
 

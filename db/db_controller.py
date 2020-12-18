@@ -78,6 +78,14 @@ def find_user(conn, user_id: int):
     return result
 
 
+# @ensure_connection
+# def find_contact(conn, user_id: int, phone_number: int):
+#     """ Function for checking if user's number does exist"""
+#     c = conn.cursor()
+#
+#     c.execute(f" SELECT EXISTS (SELECT * FROM user_data WHERE user_id = ?)", (user_id, ))
+
+
 @ensure_connection
 def delete_data(conn, user_id: int):
     c = conn.cursor()

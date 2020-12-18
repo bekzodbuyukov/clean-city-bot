@@ -43,11 +43,16 @@ async def get_contact(message: Message):
     await message.bot.delete_message(message.chat.id, message.message_id)
 
     # working with database
-    try:
-        db_controller.update_data(user_id=message.chat.id, updating_column="phone_number",
-                                  updating_value=message.contact.phone_number)
-    except:
-        error_text = get_string("phone_number_error", message.chat.id)
-        await message.answer(text=error_text)
+    if db_controller.get_data(user_id=message.chat.id, needed_column="phone_number") == 0:
+        try:
+            db_controller.update_data(user_id=message.chat.id, updating_column="phone_number",
+                                      updating_value=message.contact.phone_number)
+        except:
+            error_text = get_string("phone_number_error", message.chat.id)
+            await message.answer(text=error_text)
+        await message.answer(text=text, reply_markup=keyboards.get_main_menu(message.chat.id))
+    else:
+        await message.answer(text=get_string("number_not_needed", message.chat.id),
+                             reply_markup=keyboards.get_main_menu(message.chat.id))
 
-    await message.answer(text=text, reply_markup=keyboards.get_main_menu(message.chat.id))
+

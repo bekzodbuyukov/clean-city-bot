@@ -25,7 +25,7 @@ CHOOSE_LANGUAGE_MENU = InlineKeyboardMarkup(
             InlineKeyboardButton(text="O'zbekcha", callback_data="oz_lang")
         ],
         [
-            InlineKeyboardButton(text="Узбекча", callback_data="uz_lang")
+            InlineKeyboardButton(text="Ўзбекча", callback_data="uz_lang")
         ],
         [
             InlineKeyboardButton(text="Русский язык", callback_data="ru_lang")
@@ -43,7 +43,7 @@ CHANGE_LANGUAGE_MENU = InlineKeyboardMarkup(
             InlineKeyboardButton(text="O'zbekcha", callback_data="to_oz_lang")
         ],
         [
-            InlineKeyboardButton(text="Узбекча", callback_data="to_uz_lang")
+            InlineKeyboardButton(text="Ўзбекча", callback_data="to_uz_lang")
         ],
         [
             InlineKeyboardButton(text="Русский язык", callback_data="to_ru_lang")

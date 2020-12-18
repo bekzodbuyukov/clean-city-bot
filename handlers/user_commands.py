@@ -108,3 +108,24 @@ async def inform_language_changed(message: Message):
     await message.bot.delete_message(message.chat.id, message.message_id)
     await message.answer(text=get_string("can_change_language", message.chat.id),
                          reply_markup=keyboards.get_main_menu(message.chat.id))
+
+
+# problem button
+@dp.message_handler(text="Muammo haqida habar berish")
+async def inform_about_problem(message: Message):
+    await message.answer(text=get_string("problem", message.chat.id))
+
+
+@dp.message_handler(text="Муаммо ҳақида ҳабар бериш")
+async def inform_about_problem(message: Message):
+    await message.answer(text=get_string("problem", message.chat.id))
+
+
+@dp.message_handler(text="Сообщить о проблеме")
+async def inform_about_problem(message: Message):
+    await message.answer(text=get_string("problem", message.chat.id))
+
+
+@dp.message_handler(text="Report a problem")
+async def inform_about_problem(message: Message):
+    await message.answer(text=get_string("problem", message.chat.id))

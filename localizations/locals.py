@@ -18,4 +18,5 @@ def get_string_by_language(key, language):
 
 
 if __name__ == "__main__":
-    get_string("test", 1009755188)
+    pass
+    # get_string("test", 1009755188)

@@ -20,6 +20,29 @@ async def send_result(string_key_name: str, menu_type: str, message: Message):
                          reply_markup=menus[menu_type])
 
 
+# @dp.message_handler(content_types=types.ContentTypes.TEXT)
+# async def control_text(message: Message):
+#     settings_action = await send_result("settings", "settings_menu", message)
+#     home_action = await send_result("home", "main_menu", message)
+#     about_action = await send_result("about", "main_menu", message)
+#
+#     text = {
+#         "Sozlammalar": settings_action,
+#         "Созламмалар": settings_action,
+#         "Настройки": settings_action,
+#         "Settings": settings_action,
+#         "Bosh bo'lim": home_action,
+#         "Бош бўлим": home_action,
+#         "Главное меню": home_action,
+#         "Main menu": home_action,
+#         "Bot haqida": about_action,
+#         "Бот ҳақида": about_action,
+#         "О боте": about_action,
+#         "About bot": about_action
+#     }
+#
+#     text[message.text]
+
 # settings menu for different user languages
 @dp.message_handler(text="Sozlammalar")
 async def send_settings(message: Message):
@@ -70,7 +93,7 @@ async def send_about(message: Message):
 
 @dp.message_handler(text="Бот ҳақида")
 async def send_about(message: Message):
-    await send_result("about", "main_menu", message)
+     await send_result("about", "main_menu", message)
 
 
 @dp.message_handler(text="О боте")

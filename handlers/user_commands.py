@@ -13,7 +13,7 @@ async def send_result(string_key_name: str, menu_type: str, message: Message):
     menus = {
         "main_menu": keyboards.get_main_menu(user_id),
         "settings_menu": keyboards.get_settings_menu(user_id),
-        "change_language_menu": keyboards.CHANGE_LANGUAGE_MENU
+        "change_language_menu": keyboards.CHANGE_LANGUAGE_MENU,
     }
 
     await message.answer(text=get_string(string_key_name, user_id),

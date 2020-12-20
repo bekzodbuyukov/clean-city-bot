@@ -7,100 +7,105 @@ from localizations.locals import get_string_by_language, get_string
 from localizations.strings import choose_language_action_text
 
 
+async def send_result(string_key_name: str, menu_type: str, message: Message):
+    user_id = message.chat.id
+
+    menus = {
+        "main_menu": keyboards.get_main_menu(user_id),
+        "settings_menu": keyboards.get_settings_menu(user_id),
+        "change_language_menu": keyboards.CHANGE_LANGUAGE_MENU
+    }
+
+    await message.answer(text=get_string(string_key_name, user_id),
+                         reply_markup=menus[menu_type])
+
+
 # settings menu for different user languages
 @dp.message_handler(text="Sozlammalar")
 async def send_settings(message: Message):
-    await message.answer(text=get_string_by_language("settings", "oz"),
-                         reply_markup=keyboards.get_settings_menu(message.chat.id))
+    await send_result("settings", "settings_menu", message)
 
 
 @dp.message_handler(text="Созламмалар")
 async def send_settings(message: Message):
-    await message.answer(text=get_string_by_language("settings", "uz"),
-                         reply_markup=keyboards.get_settings_menu(message.chat.id))
+    await send_result("settings", "settings_menu", message)
 
 
 @dp.message_handler(text="Настройки")
 async def send_settings(message: Message):
-    await message.answer(text=get_string_by_language("settings", "ru"),
-                         reply_markup=keyboards.get_settings_menu(message.chat.id))
+    await send_result("settings", "settings_menu", message)
 
 
 @dp.message_handler(text="Settings")
 async def send_settings(message: Message):
-    await message.answer(text=get_string_by_language("settings", "en"),
-                         reply_markup=keyboards.get_settings_menu(message.chat.id))
+    await send_result("settings", "settings_menu", message)
 
 
 # home button for different user languages
 @dp.message_handler(text="Bosh bo'lim")
 async def send_main_menu(message: Message):
-    await message.answer(text=get_string_by_language("home", "oz"),
-                         reply_markup=keyboards.get_main_menu(message.chat.id))
+    await send_result("home", "main_menu", message)
 
 
 @dp.message_handler(text="Бош бўлим")
 async def send_main_menu(message: Message):
-    await message.answer(text=get_string_by_language("home", "uz"),
-                         reply_markup=keyboards.get_main_menu(message.chat.id))
+    await send_result("home", "main_menu", message)
 
 
 @dp.message_handler(text="Главное меню")
 async def send_main_menu(message: Message):
-    await message.answer(text=get_string_by_language("home", "ru"),
-                         reply_markup=keyboards.get_main_menu(message.chat.id))
+    await send_result("home", "main_menu", message)
 
 
 @dp.message_handler(text="Main menu")
 async def send_main_menu(message: Message):
-    await message.answer(text=get_string_by_language("home", "en"),
-                         reply_markup=keyboards.get_main_menu(message.chat.id))
+    await send_result("home", "main_menu", message)
 
 
 # about bot button result for user's different interface languages
 @dp.message_handler(text="Bot haqida")
 async def send_about(message: Message):
-    await message.answer(text=get_string_by_language("about", "oz"),
-                         reply_markup=keyboards.get_main_menu(message.chat.id))
+    await send_result("about", "main_menu", message)
 
 
 @dp.message_handler(text="Бот ҳақида")
 async def send_about(message: Message):
-    await message.answer(text=get_string_by_language("about", "uz"),
-                         reply_markup=keyboards.get_main_menu(message.chat.id))
+    await send_result("about", "main_menu", message)
 
 
 @dp.message_handler(text="О боте")
 async def send_about(message: Message):
-    await message.answer(text=get_string_by_language("about", "ru"),
-                         reply_markup=keyboards.get_main_menu(message.chat.id))
+    await send_result("about", "main_menu", message)
 
 
 @dp.message_handler(text="About bot")
 async def send_about(message: Message):
-    await message.answer(text=get_string_by_language("about", "en"),
-                         reply_markup=keyboards.get_main_menu(message.chat.id))
+    await send_result("about", "main_menu", message)
 
 
 # button for changing language in different languages
+async def call_action(message: Message):
+    await message.answer(text=choose_language_action_text, reply_markup=keyboards.CHANGE_LANGUAGE_MENU)
+
+
 @dp.message_handler(text="Tilni o'zgartirish")
 async def change_language(message: Message):
-    await message.answer(text=choose_language_action_text, reply_markup=keyboards.CHANGE_LANGUAGE_MENU)
+    await call_action(message)
 
 
 @dp.message_handler(text="Тилни ўзгартириш")
 async def change_language(message: Message):
-    await message.answer(text=choose_language_action_text, reply_markup=keyboards.CHANGE_LANGUAGE_MENU)
+    await call_action(message)
 
 
 @dp.message_handler(text="Сменить язык")
 async def change_language(message: Message):
-    await message.answer(text=choose_language_action_text, reply_markup=keyboards.CHANGE_LANGUAGE_MENU)
+    await call_action(message)
 
 
 @dp.message_handler(text="Change language")
 async def change_language(message: Message):
-    await message.answer(text=choose_language_action_text, reply_markup=keyboards.CHANGE_LANGUAGE_MENU)
+    await call_action(message)
 
 
 # change language action
@@ -113,19 +118,19 @@ async def inform_language_changed(message: Message):
 # problem button
 @dp.message_handler(text="Muammo haqida habar berish")
 async def inform_about_problem(message: Message):
-    await message.answer(text=get_string("problem", message.chat.id))
+    await send_result("problem", "main_menu", message)
 
 
 @dp.message_handler(text="Муаммо ҳақида ҳабар бериш")
 async def inform_about_problem(message: Message):
-    await message.answer(text=get_string("problem", message.chat.id))
+    await send_result("problem", "main_menu", message)
 
 
 @dp.message_handler(text="Сообщить о проблеме")
 async def inform_about_problem(message: Message):
-    await message.answer(text=get_string("problem", message.chat.id))
+    await send_result("problem", "main_menu", message)
 
 
 @dp.message_handler(text="Report a problem")
 async def inform_about_problem(message: Message):
-    await message.answer(text=get_string("problem", message.chat.id))
+    await send_result("problem", "main_menu", message)

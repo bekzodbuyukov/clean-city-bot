@@ -97,7 +97,6 @@ def delete_data(conn, user_id: int):
 if __name__ == "__main__":
     pass
     # init_db()
-
     # add_data(user_id=123, phone_number=0, language="oz")
     # update_data(user_id=123, updating_column="language", updating_value="uz")
     # print(get_data(user_id=123, needed_column="phone_number"))

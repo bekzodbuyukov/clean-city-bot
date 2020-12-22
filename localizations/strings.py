@@ -21,7 +21,8 @@ strings = {
                  " tashlanmagan axlatlar muammosi hal etilishi maqsad qilib olingan.\n\n"
                  "*Bu loyihada har bir fuqaro ishtirok etishi mumkin.*",
         "problem": "Muammo topilgan joy rasmlarini yuboring, iltimos.",
-        "number_not_needed": "Telefon raqamingiz saqlangan!"
+        "number_not_needed": "Telefon raqamingiz saqlangan!",
+        "thanks_for_report": "Hushyorligingiz uchun tashakkur!"
     },
     "uz": {
         "welcome": "Ассалому алайкум, {}!",
@@ -44,7 +45,8 @@ strings = {
                  " ташланмаган ахлатлар муаммоси ҳал этилиши мақсад қилиб олинган.\n\n"
                  "*Бу лойиҳада ҳар бир фуқаро иштирок этиши мумкин.*",
         "problem": "Муаммо топилган жой расмларини юборинг, илтимос.",
-        "number_not_needed": "Телефон рақамингиз сақланган!"
+        "number_not_needed": "Телефон рақамингиз сақланган!",
+        "thanks_for_report": "Ҳушёрлигингиз учун ташаккур!"
     },
     "ru": {
         "welcome": "Здравствуйте, {}!",
@@ -67,7 +69,8 @@ strings = {
                  " мусором выкинутым в не специльно отведенное для этого место.\n\n"
                  "*Каждый горожанин может принять участие в проекте.*",
         "problem": "Пожалуйста, отправьте изображения с места проблемы.",
-        "number_not_needed": "Ваш номер уже сохранен!"
+        "number_not_needed": "Ваш номер уже сохранен!",
+        "thanks_for_report": "Благодарим вас за Вашу бдительность!"
     },
     "en": {
         "welcome": "Hello, {}!",
@@ -90,7 +93,8 @@ strings = {
                  " is thrown not to special place.\n\n"
                  "*Every citizen can take part in this project.*",
         "problem": "Please, send photos of place where problem is detected.",
-        "number_not_needed": "Your number has already been saved!"
+        "number_not_needed": "Your number has already been saved!",
+        "thanks_for_report": "Thanks for your vigilance!"
     }
 }
 

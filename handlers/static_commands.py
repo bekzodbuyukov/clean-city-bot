@@ -1,6 +1,8 @@
+import shutil, os
+
 from bot import dp, bot
 from aiogram import types
-from aiogram.types import Message, InputMedia
+from aiogram.types import Message, InputMedia, InputMediaPhoto, input_media, InputFile
 from keyboards import keyboards
 from db import db_controller
 from localizations.locals import get_string
@@ -58,9 +60,37 @@ async def get_contact(message: Message):
 
 @dp.message_handler(content_types=types.ContentTypes.PHOTO)
 async def get_problem_photos(message: Message):
-    problem_photos = message.photo
-    if message.photo:
-        print("Photo is received!")
-    # await message.answer_photo(photo="https://image.freepik.com/free-vector/illustration-human-avatar-with-environment_53876-17627.jpg")
-    await message.answer_media_group(media=("https://image.freepik.com/free-vector/illustration-human-avatar-with-environment_53876-17627.jpg",
-                                     "https://image.freepik.com/free-vector/garbage-waste-recycling-isometric-composition-with-conceptual-images-colourful-bins-different-groups-rubbish-vector-illustration_1284-30708.jpg"))
+    first_image = "https://image.freepik.com/free-vector/illustration-human-avatar-with-environment_53876-17627.jpg"
+    second_image = "https://image.freepik.com/free-vector/garbage-waste-recycling-isometric-composition-with-"\
+                   + "conceptual-images-colourful-bins-different-groups-rubbish-vector-illustration_1284-30708.jpg"
+    third_image = "https://image.freepik.com/free-vector/green-energy-urban-landscape-vector-ecology-nature-eco"\
+                  + "-house-building-green-energy-eco-city-vector-landscape-illustration_1284-46239.jpg"
+
+    temp_destination = "/home/bek/myFiles/clean-city-bot/"
+    final_destination = "/home/bek/myFiles/clean-city-bot/user_media/photos/"
+    filename = "file_" + str(message.photo[-1].file_unique_id) + ".png"
+
+    # await message.photo[-1].download(destination=storage_destination + filename)
+    file = await bot.get_file(message.photo[-1].file_id)
+    file_path = file.file_path
+    # print(file_path)
+    await bot.download_file(file_path=file_path, destination=filename)
+
+    downloaded_file = temp_destination + filename
+
+    if not os.path.exists(final_destination + filename):
+        shutil.move(downloaded_file, final_destination)
+
+    problem_caption = f"Yangi muammo!\n\nBot: [@toza_shahar_bot](@toza_shahar_bot)\n"\
+                      f"Muammo muallifi: [{str(message.chat.first_name)}]"\
+                      f"(tg://user?id={str(message.chat.id)})"
+
+    await bot.send_photo(chat_id=-1001184010608, caption=problem_caption,
+                         photo=InputFile(path_or_bytesio=final_destination + filename))
+
+    await message.answer(text=get_string("thanks_for_report", message.chat.id),
+                         reply_markup=keyboards.get_main_menu(message.chat.id))
+
+    # await bot.send_media_group(chat_id=message.chat.id, media=[InputMediaPhoto(media=first_image),
+    #                                                            InputMediaPhoto(media=second_image),
+    #                                                            InputMediaPhoto(media=third_image)])

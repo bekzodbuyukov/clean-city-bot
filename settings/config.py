@@ -21,3 +21,5 @@ API_TOKEN = env.str("API_TOKEN")
 
 if not API_TOKEN:
     logging.error("Telegram BOT API Token is not found!")
+
+PROBLEMS_CHANNEL = -1001184010608

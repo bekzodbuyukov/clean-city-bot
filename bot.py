@@ -7,7 +7,7 @@ from db import db_controller
 
 
 # initializing database, if force=True, database will be recreated
-db_controller.init_db(force=True)
+db_controller.init_db()
 
 
 # declaring the bot and its settings

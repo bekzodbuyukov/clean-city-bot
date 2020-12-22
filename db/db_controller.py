@@ -23,14 +23,14 @@ def init_db(conn, force: bool = False):
     if force:
         c.execute("DROP TABLE IF EXISTS user_data")
 
-    c.execute('''
+    c.execute("""
         CREATE TABLE IF NOT EXISTS user_data (
             id              INTEGER PRIMARY KEY,
             user_id         INTEGER NOT NULL,
             phone_number    INTEGER,
             language        TEXT NOT NULL
         )
-    ''')
+    """)
 
     conn.commit()
 

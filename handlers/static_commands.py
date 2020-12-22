@@ -56,11 +56,11 @@ async def get_contact(message: Message):
                              reply_markup=keyboards.get_main_menu(message.chat.id))
 
 
-# @dp.message_handler(content_types=types.ContentTypes.PHOTO)
-# async def get_problem_photos(message: Message):
-#     problem_photos = message.photo
-#     if message.photo:
-#         print("Photo is received!")
-#     # await message.answer_photo(photo="https://image.freepik.com/free-vector/illustration-human-avatar-with-environment_53876-17627.jpg")
-#     await message.answer_media_group(media="https://image.freepik.com/free-vector/illustration-human-avatar-with-environment_53876-17627.jpg",
-#                                             "https://image.freepik.com/free-vector/garbage-waste-recycling-isometric-composition-with-conceptual-images-colourful-bins-different-groups-rubbish-vector-illustration_1284-30708.jpg"])
+@dp.message_handler(content_types=types.ContentTypes.PHOTO)
+async def get_problem_photos(message: Message):
+    problem_photos = message.photo
+    if message.photo:
+        print("Photo is received!")
+    # await message.answer_photo(photo="https://image.freepik.com/free-vector/illustration-human-avatar-with-environment_53876-17627.jpg")
+    await message.answer_media_group(media=("https://image.freepik.com/free-vector/illustration-human-avatar-with-environment_53876-17627.jpg",
+                                     "https://image.freepik.com/free-vector/garbage-waste-recycling-isometric-composition-with-conceptual-images-colourful-bins-different-groups-rubbish-vector-illustration_1284-30708.jpg"))

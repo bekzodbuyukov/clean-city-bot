@@ -4,7 +4,7 @@ from db import db_controller
 
 def get_string(key, user_id):
     """ Function for returning needed text for User interface """
-    language = db_controller.get_data(user_id=user_id, needed_column='language')
+    language = db_controller.get_data(user_id=user_id, needed_column="language")
     if not language:
         language = "oz"
     return strings[language][key]

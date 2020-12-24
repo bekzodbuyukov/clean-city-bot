@@ -22,7 +22,9 @@ strings = {
                  "*Bu loyihada har bir fuqaro ishtirok etishi mumkin.*",
         "problem": "Muammo topilgan joy rasmlarini yuboring, iltimos.",
         "number_not_needed": "Telefon raqamingiz saqlangan!",
-        "thanks_for_report": "Hushyorligingiz uchun tashakkur!"
+        "thanks_for_report": "Hushyorligingiz uchun tashakkur!",
+        "problem_caption": "Yangi muammo!\n\nBot: [@toza_shahar_bot](@toza_shahar_bot)\n"
+                           "Muammo muallifi: [{}](tg://user?id={})"
     },
     "uz": {
         "welcome": "Ассалому алайкум, {}!",
@@ -46,7 +48,9 @@ strings = {
                  "*Бу лойиҳада ҳар бир фуқаро иштирок этиши мумкин.*",
         "problem": "Муаммо топилган жой расмларини юборинг, илтимос.",
         "number_not_needed": "Телефон рақамингиз сақланган!",
-        "thanks_for_report": "Ҳушёрлигингиз учун ташаккур!"
+        "thanks_for_report": "Ҳушёрлигингиз учун ташаккур!",
+        "problem_caption": "Янги муаммо!\n\nБот: [@toza_shahar_bot](@toza_shahar_bot)\n"
+                           "Муаммо муаллифи: [{}](tg://user?id={})"
     },
     "ru": {
         "welcome": "Здравствуйте, {}!",
@@ -70,7 +74,9 @@ strings = {
                  "*Каждый горожанин может принять участие в проекте.*",
         "problem": "Пожалуйста, отправьте изображения с места проблемы.",
         "number_not_needed": "Ваш номер уже сохранен!",
-        "thanks_for_report": "Благодарим вас за Вашу бдительность!"
+        "thanks_for_report": "Благодарим вас за Вашу бдительность!",
+        "problem_caption": "Новая проблема!\n\nБот: [@toza_shahar_bot](@toza_shahar_bot)\n"
+                           "Автор: [{}](tg://user?id={})"
     },
     "en": {
         "welcome": "Hello, {}!",
@@ -94,7 +100,9 @@ strings = {
                  "*Every citizen can take part in this project.*",
         "problem": "Please, send photos of place where problem is detected.",
         "number_not_needed": "Your number has already been saved!",
-        "thanks_for_report": "Thanks for your vigilance!"
+        "thanks_for_report": "Thanks for your vigilance!",
+        "problem_caption": "New problem!\n\nBot: [@toza_shahar_bot](@toza_shahar_bot)\n"
+                           "Author: [{}](tg://user?id={})"
     }
 }
 

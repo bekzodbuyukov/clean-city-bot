@@ -2,7 +2,7 @@ from .strings import strings
 from db import db_controller
 
 
-def get_string(key, user_id):
+def get_string(key: str, user_id: int):
     """ Function for returning needed text for User interface """
     language = db_controller.get_data(user_id=user_id, needed_column="language")
     if not language:
@@ -10,7 +10,7 @@ def get_string(key, user_id):
     return strings[language][key]
 
 
-def get_string_by_language(key, language):
+def get_string_by_language(key: str, language: str):
     """ Function for returning needed text for User interface just by language code """
     if not language:
         language = "oz"

@@ -1,5 +1,3 @@
-import shutil, os
-
 from bot import dp, bot
 from aiogram import types
 from aiogram.types import Message, InputMedia, InputMediaPhoto, input_media, InputFile
@@ -58,31 +56,3 @@ async def get_contact(message: Message):
         await message.answer(text=get_string("number_not_needed", message.chat.id),
                              reply_markup=keyboards.get_main_menu(message.chat.id))
 
-
-@dp.message_handler(content_types=types.ContentTypes.PHOTO)
-async def get_problem_photos(message: Message):
-    filename = "file_" + str(message.photo[-1].file_unique_id) + ".png"
-
-    # await message.photo[-1].download(destination=storage_destination + filename)
-    file = await bot.get_file(message.photo[-1].file_id)
-    file_path = file.file_path
-
-    await bot.download_file(file_path=file_path, destination=filename)
-
-    downloaded_file = config.TEMP_MEDIA_DESTINATION + filename
-    moved_file = config.FINAL_MEDIA_DESTINATION + filename
-
-    if not os.path.exists(config.FINAL_MEDIA_DESTINATION + filename):
-        shutil.move(downloaded_file, config.FINAL_MEDIA_DESTINATION)
-    else:
-        os.remove(path=config.TEMP_MEDIA_DESTINATION + filename)
-
-    await bot.send_photo(chat_id=config.PROBLEMS_CHANNEL, caption=get_string_by_language("problem_caption", "oz"),
-                         photo=InputFile(path_or_bytesio=moved_file))
-
-    await message.answer(text=get_string("thanks_for_report", message.chat.id),
-                         reply_markup=keyboards.get_main_menu(message.chat.id))
-
-    # await bot.send_media_group(chat_id=message.chat.id, media=[InputMediaPhoto(media=first_image),
-    #                                                            InputMediaPhoto(media=second_image),
-    #                                                            InputMediaPhoto(media=third_image)])

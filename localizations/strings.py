@@ -24,7 +24,11 @@ strings = {
         "number_not_needed": "Telefon raqamingiz saqlangan!",
         "thanks_for_report": "Hushyorligingiz uchun tashakkur!",
         "problem_caption": "Yangi muammo!\n\nBot: [@toza_shahar_bot](@toza_shahar_bot)\n"
-                           "Muammo muallifi: [{}](tg://user?id={})"
+                           "Muammo muallifi: [{}](tg://user?id={})",
+        "want_to_be_anonymous": "Muallif sifatida ko'rsatilishingizni xohlaysizmi?",
+        "yes_button": "Ha",
+        "no_button": "Yo'q",
+        "ask_for_definition": "Iltimos, muammo haqida qisqacha matnli tushuntirish yozib yuboring."
     },
     "uz": {
         "welcome": "Ассалому алайкум, {}!",
@@ -50,7 +54,11 @@ strings = {
         "number_not_needed": "Телефон рақамингиз сақланган!",
         "thanks_for_report": "Ҳушёрлигингиз учун ташаккур!",
         "problem_caption": "Янги муаммо!\n\nБот: [@toza_shahar_bot](@toza_shahar_bot)\n"
-                           "Муаммо муаллифи: [{}](tg://user?id={})"
+                           "Муаммо муаллифи: [{}](tg://user?id={})",
+        "want_to_be_anonymous": "Муаллиф сифатида кўрсатилишингизни хоҳлайсизми?",
+        "yes_button": "Ҳа",
+        "no_button": "Йўқ",
+        "ask_for_definition": "Илтимос, муаммо ҳақида қисқача матнли тушунтириш ёзиб юборинг."
     },
     "ru": {
         "welcome": "Здравствуйте, {}!",
@@ -76,7 +84,11 @@ strings = {
         "number_not_needed": "Ваш номер уже сохранен!",
         "thanks_for_report": "Благодарим вас за Вашу бдительность!",
         "problem_caption": "Новая проблема!\n\nБот: [@toza_shahar_bot](@toza_shahar_bot)\n"
-                           "Автор: [{}](tg://user?id={})"
+                           "Автор: [{}](tg://user?id={})",
+        "want_to_be_anonymous": "Хотите, чтобы были указаны в качестве автора?",
+        "yes_button": "Да",
+        "no_button": "Нет",
+        "ask_for_definition": "Пожалуйста, опишите проблему."
     },
     "en": {
         "welcome": "Hello, {}!",
@@ -102,7 +114,11 @@ strings = {
         "number_not_needed": "Your number has already been saved!",
         "thanks_for_report": "Thanks for your vigilance!",
         "problem_caption": "New problem!\n\nBot: [@toza_shahar_bot](@toza_shahar_bot)\n"
-                           "Author: [{}](tg://user?id={})"
+                           "Author: [{}](tg://user?id={})",
+        "want_to_be_anonymous": "Do you want to be signed as report author?",
+        "yes_button": "Yes",
+        "no_button": "No",
+        "ask_for_definition": "Please, describe the problem."
     }
 }
 

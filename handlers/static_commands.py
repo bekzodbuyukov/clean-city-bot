@@ -55,4 +55,3 @@ async def get_contact(message: Message):
     else:
         await message.answer(text=get_string("number_not_needed", message.chat.id),
                              reply_markup=keyboards.get_main_menu(message.chat.id))
-

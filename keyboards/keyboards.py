@@ -56,15 +56,15 @@ CHANGE_LANGUAGE_MENU = InlineKeyboardMarkup(
 
 
 def get_stay_anonymous_menu(user_id):
-    return InlineKeyboardMarkup(
-        inline_keyboard=[
+    return ReplyKeyboardMarkup(
+        keyboard=[
             [
-                InlineKeyboardButton(text=get_string("yes_button", user_id), callback_data="yes_author")
-            ],
-            [
-                InlineKeyboardButton(text=get_string("no_button", user_id), callback_data="no_author")
+                KeyboardButton(text=get_string("yes_button", user_id)),
+                KeyboardButton(text=get_string("no_button", user_id))
             ]
-        ]
+        ],
+        resize_keyboard=True,
+        one_time_keyboard=True
     )
 
 

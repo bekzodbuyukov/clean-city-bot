@@ -8,7 +8,7 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 
 
 # initializing database, if force=True, database will be recreated
-db_controller.init_db()
+db_controller.init_db(force=True)
 
 
 # declaring the bot and its settings

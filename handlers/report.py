@@ -10,6 +10,7 @@ from settings import config
 from localizations.locals import get_string, get_string_by_language
 from keyboards import keyboards
 from aiogram.dispatcher.filters.state import State, StatesGroup
+from db import db_controller
 
 
 class Report(StatesGroup):
@@ -57,7 +58,7 @@ async def get_problem_photos(message: Message, state: FSMContext):
 @dp.message_handler(state=Report.caption)
 async def ask_for_problem_definition(message: Message, state: FSMContext):
     await state.update_data(caption=message.text)
-
+    db_controller.add_report(author_id=message.chat.id, status=False)
     await Report.anonymous_mode.set()
     print("Got definition!")
     await message.answer(text=get_string("want_to_be_anonymous", message.chat.id),

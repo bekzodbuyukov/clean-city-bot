@@ -22,6 +22,7 @@ def init_db(conn, force: bool = False):
 
     if force:
         c.execute("DROP TABLE IF EXISTS user_data")
+        c.execute("DROP TABLE IF EXISTS reports")
 
     c.execute("""
         CREATE TABLE IF NOT EXISTS user_data (
@@ -32,7 +33,41 @@ def init_db(conn, force: bool = False):
         )
     """)
 
+    c.execute("""
+        CREATE TABLE IF NOT EXISTS reports (
+            id              INTEGER PRIMARY KEY,
+            author_id       INTEGER NOT NULL,
+            status          BOOLEAN
+        )
+    """)
+
     conn.commit()
+
+
+@ensure_connection
+def add_report(conn, author_id: int, status: bool):
+    c = conn.cursor()
+
+    c.execute(f"INSERT INTO reports (author_id, status) VALUES ({author_id}, {status})")
+    conn.commit()
+
+
+@ensure_connection
+def update_report(conn, report_id: int, updating_column: str, updating_value):
+    c = conn.cursor()
+
+    c.execute(f"UPDATE reports SET {updating_column} = ? WHERE id = {report_id}", updating_value)
+    conn.commit()
+
+
+@ensure_connection
+def get_report(conn, report_id: int, needed_column: str):
+    c = conn.cursor()
+
+    c.execute(f"SELECT {needed_column} FROM reports WHERE id = {report_id}")
+
+    (result, ) = c.fetchone()
+    return result
 
 
 @ensure_connection
